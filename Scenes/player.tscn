@@ -11,7 +11,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oo8ef"]
 radius = 0.407547
-height = 1.37478
+height = 1.9909394
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs2kd"]
 resource_name = "GobotMat"
@@ -2050,10 +2050,9 @@ point_count = 3
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_t0xh4")
-jump_force = 6.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.97999996, 0, 0, 0, 1, -0.000624448, 0.675578, -0.00332153)
+transform = Transform3D(1, 0, 0, 0, 0.97999996, 0, 0, 0, 1, -0.000624448, 1.001419, -0.00332153)
 shape = SubResource("CapsuleShape3D_oo8ef")
 
 [node name="BeatriceTexture_Player" parent="." instance=ExtResource("2_8erm5")]

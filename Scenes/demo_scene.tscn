@@ -1,21 +1,34 @@
-[gd_scene load_steps=17 format=3 uid="uid://po63m4srixl4"]
+[gd_scene load_steps=19 format=3 uid="uid://po63m4srixl4"]
 
 [ext_resource type="PackedScene" uid="uid://0t0qb3qjq6my" path="res://Scenes/PlatformRed.tscn" id="2_4lh3q"]
 [ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
 [ext_resource type="PackedScene" uid="uid://dfc0ecsjufu7v" path="res://Scenes/PlatformBlue.tscn" id="3_mj5wy"]
-[ext_resource type="Script" path="res://Scripts/DeadZone.gd" id="4_8ry15"]
+[ext_resource type="Script" uid="uid://cge6qchhlco1y" path="res://Scripts/DeadZone.gd" id="4_8ry15"]
 [ext_resource type="PackedScene" uid="uid://bk5n0tn4k1l0c" path="res://Scenes/Coin.tscn" id="5_4fiv6"]
-[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="6_8fvkd"]
+[ext_resource type="Script" uid="uid://cn1d0dkhxqpki" path="res://Scripts/GameManager.gd" id="6_8fvkd"]
 [ext_resource type="Texture2D" uid="uid://cnbbny7qjh2xn" path="res://Assets/Textures/coin.png" id="7_ow7xm"]
-[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="7_x8whp"]
+[ext_resource type="Script" uid="uid://n0xgrr51qilv" path="res://Scripts/GameUI.gd" id="7_x8whp"]
 [ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r4p77"]
+sky_top_color = Color(0, 0.12404113, 0.24776852, 1)
+sky_horizon_color = Color(0.31695214, 0.44410884, 0.6024104, 1)
+sky_curve = 0.034988727
+ground_bottom_color = Color(0.16365567, 0.17034516, 0.22262645, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+sun_angle_max = 7.22
+sun_curve = 0.12613449
+
+[sub_resource type="Sky" id="Sky_okl2h"]
+sky_material = SubResource("ProceduralSkyMaterial_r4p77")
+
 [sub_resource type="Environment" id="Environment_g4ka7"]
-background_mode = 1
-background_color = Color(0.764706, 0.764706, 0.764706, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
-ambient_light_energy = 1.15
+background_mode = 2
+background_color = Color(0.50551045, 0.74528146, 0.83583134, 1)
+background_energy_multiplier = 1.73
+sky = SubResource("Sky_okl2h")
+ambient_light_color = Color(0.58949, 0.70968235, 0.81805813, 1)
+ambient_light_energy = 2.6
 tonemap_mode = 2
 tonemap_exposure = 0.75
 ssr_enabled = true

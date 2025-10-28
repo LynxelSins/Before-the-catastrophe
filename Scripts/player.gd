@@ -9,13 +9,14 @@ extends CharacterBody3D
 # ---------- VARIABLES ---------- #
 
 @export_category("Player Properties")
-@export var move_speed : float = 6
-@export var jump_force : float = 5
-@export var follow_lerp_factor : float = 4
+@export var move_speed : float = 8
+@export var jump_force : float = 2
+@export var follow_lerp_factor : float = 10
 @export var jump_limit : int = 2
 
 @export_group("Game Juice")
-@export var jumpStretchSize := Vector3(0.8, 1.2, 0.8)
+@export var jumpStretchSize := Vector3(0.95, 1.05, 0.95)
+@export var fall_multiplier : float = 4
 
 # Booleans
 var is_grounded = false
@@ -32,7 +33,7 @@ var can_double_jump = false
 @onready var footsteps = $Footsteps
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 2
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.5
 
 # ---------- FUNCTIONS ---------- #
 
@@ -61,8 +62,10 @@ func _process(delta):
 		elif can_double_jump:
 			if is_moving():
 				perform_flip_jump()
-	
-	velocity.y -= gravity * delta
+	if velocity.y < 0:
+		velocity.y -=gravity * fall_multiplier*delta
+	else:
+		velocity.y -= gravity * fall_multiplier*(delta/2)
 
 func perform_jump():
 	AudioManager.jump_sfx.play()
@@ -79,7 +82,7 @@ func perform_flip_jump():
 	velocity.y = jump_force
 	await animation.animation_finished
 	can_double_jump = false
-	animation2.play("Jump", 2.0)
+	animation2.play("Jump", 0.5)
 
 func is_moving():
 	return abs(velocity.z) > 0 || abs(velocity.x) > 0
