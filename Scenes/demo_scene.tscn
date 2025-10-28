@@ -217,6 +217,12 @@ shape = SubResource("BoxShape3D_asf4q")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
+[node name="GameMenu" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="GameUI" type="Control" parent="UserInterface"]
 layout_mode = 3
 anchors_preset = 0
