@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=4 uid="uid://c24cnty6yxigi"]
+
+[ext_resource type="Texture2D" uid="uid://bvtmcqswvhjrq" path="res://Assets/Models/temple_ruins_asset_pack_0.png" id="1_0lx5w"]
+[ext_resource type="Texture2D" uid="uid://bejr8jlcklm03" path="res://Assets/Models/temple_ruins_asset_pack_1.png" id="2_1lgjd"]
+[ext_resource type="Texture2D" uid="uid://c4wjbo7om2dvo" path="res://Assets/Models/temple_ruins_asset_pack_2.png" id="3_5imvu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kr65"]
+resource_name = "M_Stone1"
+cull_mode = 2
+albedo_texture = ExtResource("1_0lx5w")
+metallic_texture = ExtResource("2_1lgjd")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_1lgjd")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_5imvu")
+ao_enabled = true
+ao_texture = ExtResource("2_1lgjd")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x1oi5"]
+_surfaces = [{
+"aabb": AABB(-12.5, -2.9802322e-08, -1.5000014, 24.999994, 25, 3),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAgADAAQABQABAAAAAQAFAAMABgAFAAAAAwAHAAQABgAEAAcABQAHAAMABQAGAAcA"),
+"name": "M_Stone1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP////8AAP//AAD//wAA////////AAD//wAAAAAAAAAA//8AAAAAAAAAAAAAAAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_65qbr"]
+resource_name = "Sketchfab_Scene_Small_Stone_Wall_Plain_M_Stone1_0"
+_surfaces = [{
+"aabb": AABB(-12.5, -2.9802322e-08, -1.5000014, 24.999994, 25, 3),
+"attribute_data": PackedByteArray("deFkW3XhCnkb/2RbG/8KedxJl+erTJfn3Eks0KtMLNCuw+t4LuHreK7Da1su4Wtb3EnCuNxJLNCrTMK4q0ws0KtMAf+rTJfn3EkB/9xJl+c="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAFAAYABQAHAAYACAAJAAoACQALAAoADAANAA4ADQAPAA4AEAARABIAEQATABIA"),
+"material": SubResource("StandardMaterial3D_3kr65"),
+"name": "M_Stone1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//AIAAAP////8AgP//AAD//wCA////////AIAAAP////9U1QAA//8AAFTV////////VNX/////AABU1QAA//8AAP//AAAAAAAA////////AAD/////AAAAAP////8AAP///7//////////v///AAAAAP+//////wAA/78AAAAAAAD//wAA//8AAP//AAAAAP////8AAP////////9/////f////3////9///9U1aoqVNWqKlTVqipU1aoq/z//v/8//7//P/+//z//v/9/AAD/fwAA/38AAP9/AAD/P/9//z//f/8//3//P/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_x1oi5")
+
+[node name="Small_Stone_Wall_Plain" type="Node3D"]
+
+[node name="Small_Stone_Wall_Plain_M_Stone1_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_65qbr")
+skeleton = NodePath("")

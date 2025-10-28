@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://po63m4srixl4"]
+[gd_scene load_steps=20 format=3 uid="uid://po63m4srixl4"]
 
 [ext_resource type="PackedScene" uid="uid://0t0qb3qjq6my" path="res://Scenes/PlatformRed.tscn" id="2_4lh3q"]
 [ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
@@ -9,15 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://cnbbny7qjh2xn" path="res://Assets/Textures/coin.png" id="7_ow7xm"]
 [ext_resource type="Script" uid="uid://n0xgrr51qilv" path="res://Scripts/GameUI.gd" id="7_x8whp"]
 [ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
+[ext_resource type="PackedScene" uid="uid://cxj5ye5aumqrl" path="res://Scenes/table.tscn" id="10_ad2i4"]
+[ext_resource type="PackedScene" uid="uid://bnljraa300dwb" path="res://Scenes/Magicbook1.tscn" id="11_3tqca"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r4p77"]
-sky_top_color = Color(0, 0.12404113, 0.24776852, 1)
-sky_horizon_color = Color(0.31695214, 0.44410884, 0.6024104, 1)
-sky_curve = 0.034988727
-ground_bottom_color = Color(0.16365567, 0.17034516, 0.22262645, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
-sun_angle_max = 7.22
-sun_curve = 0.12613449
+sky_top_color = Color(0.010441895, 0.03242555, 0.11311764, 1)
+sky_horizon_color = Color(0.22661003, 0.45596766, 0.7561194, 1)
+sky_curve = 0.031533677
+sky_cover_modulate = Color(0.088314824, 0.08721029, 0.0981198, 1)
+ground_bottom_color = Color(0.042862132, 0.09046195, 0.15292922, 1)
+ground_horizon_color = Color(0.21164674, 0.38148898, 0.55909425, 1)
+sun_angle_max = 8.5
+sun_curve = 0.10980647
 
 [sub_resource type="Sky" id="Sky_okl2h"]
 sky_material = SubResource("ProceduralSkyMaterial_r4p77")
@@ -50,9 +53,6 @@ adjustment_saturation = 1.09
 [sub_resource type="SystemFont" id="SystemFont_om7om"]
 font_names = PackedStringArray("Star Choco")
 
-[sub_resource type="SystemFont" id="SystemFont_ub50t"]
-font_names = PackedStringArray("Star Choco")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_asf4q"]
 size = Vector3(128, 17, 112)
 
@@ -82,7 +82,7 @@ transform = Transform3D(3.9312, 0, 0, 0, 0.39312, 0, 0, 0, 3.9312, 0.0200105, 3,
 transform = Transform3D(3.9312, 0, 0, 0, 0.39312, 0, 0, 0, 3.9312, 9.02, 6, -20.997)
 
 [node name="PlatformRed3" parent="Platforms" instance=ExtResource("2_4lh3q")]
-transform = Transform3D(5.30712, 0, 0, 0, 0.530712, 0, 0, 0, 5.30712, 18.02, 9, 2.00303)
+transform = Transform3D(5.30712, 0, 0, 0, 0.530712, 0, 0, 0, 5.30712, 17.971313, 9.035208, 1.9869163)
 
 [node name="PlatformBlue" parent="Platforms" instance=ExtResource("3_mj5wy")]
 transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 0, 3, -11)
@@ -124,16 +124,6 @@ Basic Score System
 Animations"
 font = SubResource("SystemFont_om7om")
 font_size = 250
-outline_size = 0
-uppercase = true
-
-[node name="Credits" type="Label3D" parent="Extras"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0336823, 4.71136, 8.82437)
-text = "Platform Models By: Rayyan Aziz
-Character By: GDQuest
-Programming & Level Design: Adil Shafiq"
-font = SubResource("SystemFont_ub50t")
-font_size = 100
 outline_size = 0
 uppercase = true
 
@@ -196,5 +186,11 @@ theme_override_fonts/font = SubResource("SystemFont_1ixsq")
 theme_override_font_sizes/font_size = 48
 text = "X 3"
 label_settings = SubResource("LabelSettings_igq7x")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("10_ad2i4")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2.090139, 3.2671244, -1.3518353)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("11_3tqca")]
+transform = Transform3D(-0.010927957, 0.015626706, -0.0060320613, 0.016646458, 0.010933008, -0.0018343409, 0.0018641939, -0.006022903, -0.01898024, 1.770905, 5.2188134, -0.8439286)
 
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
