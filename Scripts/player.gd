@@ -10,13 +10,13 @@ extends CharacterBody3D
 
 @export_category("Player Properties")
 @export var move_speed : float = 8
-@export var jump_force : float = 2
+@export var jump_force : float = 8
 @export var follow_lerp_factor : float = 10
-@export var jump_limit : int = 2
+@export var jump_limit : int = 8
 
 @export_group("Game Juice")
 @export var jumpStretchSize := Vector3(0.95, 1.05, 0.95)
-@export var fall_multiplier : float = 4
+@export var fall_multiplier : float = 2
 
 # Booleans
 var is_grounded = false
@@ -33,7 +33,7 @@ var can_double_jump = false
 @onready var footsteps = $Footsteps
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.5
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 2
 
 # ---------- FUNCTIONS ---------- #
 
