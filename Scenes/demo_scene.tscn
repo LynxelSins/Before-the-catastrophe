@@ -1,24 +1,24 @@
-[gd_scene load_steps=20 format=3 uid="uid://po63m4srixl4"]
+[gd_scene load_steps=22 format=3 uid="uid://po63m4srixl4"]
 
 [ext_resource type="PackedScene" uid="uid://0t0qb3qjq6my" path="res://Scenes/PlatformRed.tscn" id="2_4lh3q"]
 [ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
 [ext_resource type="PackedScene" uid="uid://dfc0ecsjufu7v" path="res://Scenes/PlatformBlue.tscn" id="3_mj5wy"]
 [ext_resource type="Script" uid="uid://cge6qchhlco1y" path="res://Scripts/DeadZone.gd" id="4_8ry15"]
+[ext_resource type="PackedScene" uid="uid://c24cnty6yxigi" path="res://Assets/Models/gobot/model/small_stone_wall_plain.tscn" id="5_3tqca"]
 [ext_resource type="PackedScene" uid="uid://bk5n0tn4k1l0c" path="res://Scenes/Coin.tscn" id="5_4fiv6"]
 [ext_resource type="Script" uid="uid://cn1d0dkhxqpki" path="res://Scripts/GameManager.gd" id="6_8fvkd"]
-[ext_resource type="Texture2D" uid="uid://cnbbny7qjh2xn" path="res://Assets/Textures/coin.png" id="7_ow7xm"]
 [ext_resource type="Script" uid="uid://n0xgrr51qilv" path="res://Scripts/GameUI.gd" id="7_x8whp"]
 [ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
 [ext_resource type="PackedScene" uid="uid://cxj5ye5aumqrl" path="res://Scenes/table.tscn" id="10_ad2i4"]
 [ext_resource type="PackedScene" uid="uid://bnljraa300dwb" path="res://Scenes/Magicbook1.tscn" id="11_3tqca"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r4p77"]
-sky_top_color = Color(0.010441895, 0.03242555, 0.11311764, 1)
-sky_horizon_color = Color(0.22661003, 0.45596766, 0.7561194, 1)
+sky_top_color = Color(0.00088612625, 0.03805535, 0.10383458, 1)
+sky_horizon_color = Color(0.3717584, 0.37057972, 0.88646555, 1)
 sky_curve = 0.031533677
 sky_cover_modulate = Color(0.088314824, 0.08721029, 0.0981198, 1)
-ground_bottom_color = Color(0.042862132, 0.09046195, 0.15292922, 1)
-ground_horizon_color = Color(0.21164674, 0.38148898, 0.55909425, 1)
+ground_bottom_color = Color(0.07063227, 0.07608486, 0.1746597, 1)
+ground_horizon_color = Color(0.3013552, 0.34591407, 0.60229975, 1)
 sun_angle_max = 8.5
 sun_curve = 0.10980647
 
@@ -56,6 +56,8 @@ font_names = PackedStringArray("Star Choco")
 [sub_resource type="BoxShape3D" id="BoxShape3D_asf4q"]
 size = Vector3(128, 17, 112)
 
+[sub_resource type="Theme" id="Theme_ad2i4"]
+
 [sub_resource type="SystemFont" id="SystemFont_1ixsq"]
 font_names = PackedStringArray("Star Choco")
 multichannel_signed_distance_field = true
@@ -68,6 +70,8 @@ font = SubResource("SystemFont_656xb")
 font_size = 50
 font_color = Color(0.996094, 0.691406, 0.261719, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_ad2i4"]
+
 [node name="DemoScene" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_21dfl")]
@@ -79,22 +83,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 transform = Transform3D(3.9312, 0, 0, 0, 0.39312, 0, 0, 0, 3.9312, 0.0200105, 3, 0.00302696)
 
 [node name="PlatformRed2" parent="Platforms" instance=ExtResource("2_4lh3q")]
-transform = Transform3D(3.9312, 0, 0, 0, 0.39312, 0, 0, 0, 3.9312, 9.02, 6, -20.997)
-
-[node name="PlatformRed3" parent="Platforms" instance=ExtResource("2_4lh3q")]
-transform = Transform3D(5.30712, 0, 0, 0, 0.530712, 0, 0, 0, 5.30712, 17.971313, 9.035208, 1.9869163)
+transform = Transform3D(3.9312, 0, 0, 0, 0.39312, 0, 0, 0, 3.9312, 7.1602626, 4.585622, -16.853582)
 
 [node name="PlatformBlue" parent="Platforms" instance=ExtResource("3_mj5wy")]
-transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 0, 3, -11)
+transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 0, 3, -8.86315)
 
 [node name="PlatformBlue2" parent="Platforms" instance=ExtResource("3_mj5wy")]
-transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 0, 4.01868, -21.7155)
+transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 0, 4.01868, -15.01504)
 
 [node name="PlatformBlue3" parent="Platforms" instance=ExtResource("3_mj5wy")]
-transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 18, 7.01868, -20.7155)
+transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 13.830502, 5.463404, -20.7155)
 
 [node name="PlatformBlue4" parent="Platforms" instance=ExtResource("3_mj5wy")]
-transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 18, 8.01868, -9.71549)
+transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 19.292118, 6.4060574, -16.454807)
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -116,33 +117,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -40)
 texture = ExtResource("9_46gx6")
 
 [node name="Features" type="Label3D" parent="Extras"]
-transform = Transform3D(0.387789, 0, 0.921748, 0, 1, 0, -0.921748, 0, 0.387789, -14.0511, 5.78537, -6.67751)
-text = "Features:
-Working Controller
-Double Jump
-Basic Score System
-Animations"
+transform = Transform3D(0.387789, 0, 0.921748, 0, 1, 0, -0.921748, 0, 0.387789, -9.319522, 5.5406265, -4.572438)
+text = "นางสาวปภาวรินทร์ นาเมืองรักษ์
+673380275-5"
 font = SubResource("SystemFont_om7om")
 font_size = 250
 outline_size = 0
 uppercase = true
 
+[node name="Small_Stone_Wall_Plain_M_Stone1_1" parent="Extras" instance=ExtResource("5_3tqca")]
+transform = Transform3D(0.09019811, 0.03694934, 0.022339216, 0.029319378, -0.014432777, -0.0945096, -0.03169651, 0.09179562, -0.023851417, 22.626959, 8.560761, -13.275366)
+
+[node name="Small_Stone_Wall_Plain_M_Stone1_0" parent="Extras" instance=ExtResource("5_3tqca")]
+transform = Transform3D(-0.029567422, 0.09263886, -0.02331969, 0.029319376, -0.014432777, -0.09450961, -0.09091831, -0.03478125, -0.02289373, 22.683285, 7.7488155, -15.736156)
+
+[node name="Small_Stone_Wall_Plain_M_Stone1_3" parent="Extras" instance=ExtResource("5_3tqca")]
+transform = Transform3D(-0.044321664, -0.08964139, -6.040372e-05, 0.029319376, -0.014432777, -0.09450961, 0.08471101, -0.04190595, 0.032679144, 22.188068, 9.893011, -4.1985435)
+
+[node name="Small_Stone_Wall_Plain_M_Stone1_2" parent="Extras" instance=ExtResource("5_3tqca")]
+transform = Transform3D(-0.09526969, 0.0038647838, -0.03014537, 0.029319376, -0.014432777, -0.09450961, -0.008003408, -0.09887747, 0.01261694, 19.892822, 10.073353, -8.243717)
+
 [node name="Coins" type="Node3D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36921, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36921, -8.998732)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.36921, -21.6303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.36921, -14.929841)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14233, 7.06635, -20.9353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.465506, 10.497817, -4.7461596)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8983, 8.76539, -20.793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.728802, 7.2101145, -20.793)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.038527, 9.39246, -12.399054)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8983, 9.70155, -9.79296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.190418, 8.088927, -16.532276)
 
 [node name="GameManager" type="Node3D" parent="."]
 script = ExtResource("6_8fvkd")
@@ -163,28 +176,32 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_x8whp")
 
-[node name="CoinTexture" type="TextureRect" parent="UserInterface/GameUI"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 31.0
-offset_right = 122.0
-offset_bottom = 121.0
-texture = ExtResource("7_ow7xm")
-expand_mode = 1
-stretch_mode = 4
-
 [node name="CoinsLabel" type="Label" parent="UserInterface/GameUI"]
 layout_mode = 0
 offset_left = 136.0
 offset_top = 50.0
 offset_right = 193.0
 offset_bottom = 120.0
-theme_override_colors/font_color = Color(0.996094, 0.710938, 0.261719, 1)
-theme_override_colors/font_outline_color = Color(0.644531, 0.410156, 0.1875, 1)
-theme_override_constants/outline_size = 24
+theme = SubResource("Theme_ad2i4")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
 theme_override_fonts/font = SubResource("SystemFont_1ixsq")
 theme_override_font_sizes/font_size = 48
-text = "X 3"
+text = "3"
+label_settings = SubResource("LabelSettings_igq7x")
+
+[node name="CoinsLabel2" type="Label" parent="UserInterface/GameUI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 50.0
+offset_right = 135.0
+offset_bottom = 120.0
+theme = SubResource("Theme_ad2i4")
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_ad2i4")
+theme_override_font_sizes/font_size = 48
+text = "Gem:"
 label_settings = SubResource("LabelSettings_igq7x")
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("10_ad2i4")]

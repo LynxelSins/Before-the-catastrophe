@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://ddy25g1ekj3lj"]
+[gd_scene load_steps=9 format=4 uid="uid://ddy25g1ekj3lj"]
 
 [ext_resource type="Texture2D" uid="uid://bvtmcqswvhjrq" path="res://Assets/Models/temple_ruins_asset_pack_0.png" id="1_xaboi"]
 [ext_resource type="Texture2D" uid="uid://bejr8jlcklm03" path="res://Assets/Models/temple_ruins_asset_pack_1.png" id="2_mjonp"]
@@ -51,8 +51,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7otrr")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xaboi"]
+size = Vector3(10.024139, 49.8882, 2.9823608)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjonp"]
+size = Vector3(25.051865, 5.484848, 2.9733887)
+
 [node name="Tall_Stone_Wall_Window" type="Node3D"]
 
 [node name="Tall_Stone_Wall_Window_M_Stone1_0" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_qtpog")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tall_Stone_Wall_Window_M_Stone1_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tall_Stone_Wall_Window_M_Stone1_0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5667286, 24.944067, 0)
+shape = SubResource("BoxShape3D_xaboi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Tall_Stone_Wall_Window_M_Stone1_0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3693333, 24.944067, 0.0067443848)
+shape = SubResource("BoxShape3D_xaboi")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Tall_Stone_Wall_Window_M_Stone1_0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06455231, 46.336353, -0.016479492)
+shape = SubResource("BoxShape3D_mjonp")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Tall_Stone_Wall_Window_M_Stone1_0/StaticBody3D/CollisionShape3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0565989, -43.677517, -0.016479492)
+shape = SubResource("BoxShape3D_mjonp")

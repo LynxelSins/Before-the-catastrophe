@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://i6vf82ejfddn"]
+[gd_scene load_steps=9 format=4 uid="uid://i6vf82ejfddn"]
 
 [ext_resource type="Texture2D" uid="uid://c22bfgmq08ny5" path="res://Assets/Models/temple_ruins_asset_pack_4.png" id="1_xvpkp"]
 [ext_resource type="Texture2D" uid="uid://c4sohjg27uikp" path="res://Assets/Models/temple_ruins_asset_pack_5.png" id="2_ldnrx"]
@@ -51,8 +51,28 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_to85j")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xvpkp"]
+size = Vector3(49.89026, 2.5697632, 24.705322)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ldnrx"]
+size = Vector3(7.675659, 24.709229, 24.582397)
+
 [node name="Stone_Bridge_Arch_Broken" type="Node3D"]
 
 [node name="Stone_Bridge_Arch_Broken_M_Stone2_0" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_f14ms")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stone_Bridge_Arch_Broken_M_Stone2_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stone_Bridge_Arch_Broken_M_Stone2_0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030700684, 23.740286, -0.024047852)
+shape = SubResource("BoxShape3D_xvpkp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Stone_Bridge_Arch_Broken_M_Stone2_0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.281935, 12.551062, 0)
+shape = SubResource("BoxShape3D_ldnrx")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Stone_Bridge_Arch_Broken_M_Stone2_0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.151587, 12.551062, -0.101867676)
+shape = SubResource("BoxShape3D_ldnrx")

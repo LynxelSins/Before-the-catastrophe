@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://c24cnty6yxigi"]
+[gd_scene load_steps=8 format=4 uid="uid://c24cnty6yxigi"]
 
 [ext_resource type="Texture2D" uid="uid://bvtmcqswvhjrq" path="res://Assets/Models/temple_ruins_asset_pack_0.png" id="1_0lx5w"]
 [ext_resource type="Texture2D" uid="uid://bejr8jlcklm03" path="res://Assets/Models/temple_ruins_asset_pack_1.png" id="2_1lgjd"]
@@ -49,8 +49,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x1oi5")
 
-[node name="Small_Stone_Wall_Plain" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0lx5w"]
+size = Vector3(25.062866, 25.15149, 2.9415283)
 
-[node name="Small_Stone_Wall_Plain_M_Stone1_0" type="MeshInstance3D" parent="."]
+[node name="Small_Stone_Wall_Plain_M_Stone1_0" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -12.078178)
 mesh = SubResource("ArrayMesh_65qbr")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021911621, 12.431608, 6.045897e-05)
+shape = SubResource("BoxShape3D_0lx5w")

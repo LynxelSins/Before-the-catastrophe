@@ -7,4 +7,4 @@ extends Control
 # ---------- FUNCTIONS ---------- #
 
 func _process(_delta):
-	coinsLabel.text = "x %d" % GameManager.score # Set the coin label text to the score variable
+	coinsLabel.text = " %d" % GameManager.score # Set the coin label text to the score variable
