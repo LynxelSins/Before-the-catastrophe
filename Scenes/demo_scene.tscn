@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://po63m4srixl4"]
+[gd_scene load_steps=31 format=3 uid="uid://po63m4srixl4"]
 
 [ext_resource type="PackedScene" uid="uid://0t0qb3qjq6my" path="res://Scenes/PlatformRed.tscn" id="2_4lh3q"]
 [ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cge6qchhlco1y" path="res://Scripts/DeadZone.gd" id="4_8ry15"]
 [ext_resource type="PackedScene" uid="uid://c24cnty6yxigi" path="res://Assets/Models/gobot/model/small_stone_wall_plain.tscn" id="5_3tqca"]
 [ext_resource type="PackedScene" uid="uid://bk5n0tn4k1l0c" path="res://Scenes/Coin.tscn" id="5_4fiv6"]
+[ext_resource type="FontFile" uid="uid://4rud5cr74183" path="res://fonts/THSarabunNew/THSarabunNew.ttf" id="5_t5fyi"]
 [ext_resource type="Script" uid="uid://cn1d0dkhxqpki" path="res://Scripts/GameManager.gd" id="6_8fvkd"]
 [ext_resource type="Script" uid="uid://n0xgrr51qilv" path="res://Scripts/GameUI.gd" id="7_x8whp"]
 [ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
@@ -163,7 +164,7 @@ uppercase = true
 transform = Transform3D(0.38161892, 0, 0.9243197, 0, 1, 0, -0.9243197, 0, 0.38161892, -6.050798, 5.5406265, -1.3510666)
 text = "นางสาวปภาวรินทร์ นาเมืองรักษ์
 673380275-5"
-font = SubResource("SystemFont_om7om")
+font = ExtResource("5_t5fyi")
 font_size = 180
 outline_size = 0
 uppercase = true
@@ -277,7 +278,6 @@ text = "Time:
 "
 
 [node name="GameMenu" type="Control" parent="UserInterface"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -328,7 +328,8 @@ offset_right = 406.0
 offset_bottom = 434.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("5_t5fyi")
+theme_override_font_sizes/font_size = 40
 text = "นางสาวปภาวรินทร์ นาเมืองรักษ์ 673380275-5"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -361,6 +362,7 @@ theme_override_font_sizes/font_size = 20
 text = "Press F to"
 
 [node name="GameSum" type="Control" parent="UserInterface"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
