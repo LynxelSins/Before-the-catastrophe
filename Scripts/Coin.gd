@@ -2,55 +2,72 @@ extends Area3D
 
 # ---------- VARIABLES ---------- #
 
-# You can change these values from inspector!
 @export_category("Properties")
-@export var follow_speed := 6
-@export var amplitude := 0.2
-@export var frequency := 4
+@export var amplitude := 0.2 # ความสูงของการลอย
+@export var frequency := 4 # ความถี่ของการลอย
 
-var time_passed = 0
-var is_in_range = false
+var start_transform: Transform3D
+var time_passed = 0.0
+var is_collected = false # ติดตามสถานะการเก็บ
 
-# Vector
 var initial_position := Vector3.ZERO
-
-@onready var player := get_tree().get_first_node_in_group("Player")
+# @onready var player := get_tree().get_first_node_in_group("Player") # ไม่จำเป็นต้องใช้แล้ว
 
 # ---------- FUNCTIONS ---------- #
 
 func _ready():
-	initial_position = position
+	# บันทึกสถานะเริ่มต้นของเหรียญ (ตำแหน่ง/การหมุน/ขนาด)
+	start_transform = global_transform
+	initial_position = position # บันทึกตำแหน่ง Local Y สำหรับการลอย
+	
+	# ตรวจสอบให้แน่ใจว่าเหรียญแสดงผลเมื่อเริ่ม
+	show()
+	scale = Vector3.ONE
 
 func _process(delta):
-	coin_hover(delta) # Call the coin_hover function
+	if is_collected:
+		return # หยุดการทำงานทั้งหมดหากถูกเก็บแล้ว
+		
+	coin_hover(delta)
 	rotate_y(deg_to_rad(3))
 	
-	if is_in_range:
-		var tween = create_tween()
-		tween.tween_property(self, "scale", Vector3.ZERO, 0.4).set_ease(Tween.EASE_IN_OUT)
-		follow_player(delta)
+	# **ตัดส่วน follow_player และ tween ออก**
 	
 # Coin Hover Animation
 func coin_hover(delta):
 	time_passed += delta
 	
+	# คำนวณตำแหน่ง Y ใหม่สำหรับการลอย
 	var new_y = initial_position.y + amplitude * sin(frequency * time_passed)
 	position.y = new_y
-
-func follow_player(delta):
-	position += global_position.direction_to(player.global_position) * follow_speed * delta
 
 # ---------- SIGNALS ---------- #
 
 func _on_body_entered(body):
-	# Delete The Coin and Add Score
-	if body.is_in_group("Player"):
+	# ตรวจสอบและเก็บเหรียญทันทีเมื่อชน
+	if body.is_in_group("Player") and not is_collected:
+		is_collected = true # ตั้งค่าสถานะเป็นถูกเก็บแล้ว
 		GameManager.add_score()
 		AudioManager.coin_sfx.play()
-		queue_free()
+		#AudioManager.coin_sfx.play() # (ถ้ามีโหนด AudioManager อยู่ในฉาก)
+		
+		# **ซ่อนเหรียญทันที**
+		hide()
+		scale = Vector3.ZERO # ตั้งค่าขนาดเป็นศูนย์เพื่อหลีกเลี่ยง invert error
 
-func _on_range_body_entered(body):
-	if body.is_in_group("Player"):
-		is_in_range = true
-	else:
-		is_in_range = false
+# **ลบฟังก์ชัน _on_range_body_entered ออกไป**
+		
+func reset_coin():
+	# **ฟังก์ชันนี้จะรีเซ็ตเหรียญกลับสู่สถานะเดิม**
+	
+	# 1. คืนค่า Transform
+	global_transform = start_transform 
+	
+	# 2. คืนค่าสถานะ
+	scale = Vector3.ONE
+	show()
+	is_collected = false # รีเซ็ตสถานะการเก็บ
+	time_passed = 0.0
+	
+	# 3. รีเซ็ตตำแหน่ง Local Y เพื่อให้การลอยทำงานถูกต้อง
+	position.y = initial_position.y

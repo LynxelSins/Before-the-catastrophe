@@ -16,3 +16,6 @@ func show_mouse_cursor():
 
 func add_score():
 	score += 1
+
+func reset_score(): # **เพิ่มฟังก์ชันนี้**
+	score = 0

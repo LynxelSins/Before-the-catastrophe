@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://po63m4srixl4"]
+[gd_scene load_steps=30 format=3 uid="uid://po63m4srixl4"]
 
 [ext_resource type="PackedScene" uid="uid://0t0qb3qjq6my" path="res://Scenes/PlatformRed.tscn" id="2_4lh3q"]
 [ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cn1d0dkhxqpki" path="res://Scripts/GameManager.gd" id="6_8fvkd"]
 [ext_resource type="Script" uid="uid://n0xgrr51qilv" path="res://Scripts/GameUI.gd" id="7_x8whp"]
 [ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
+[ext_resource type="Script" uid="uid://clup1kt8l7sk4" path="res://Scenes/user_interface.gd" id="9_yidtr"]
 [ext_resource type="PackedScene" uid="uid://cxj5ye5aumqrl" path="res://Scenes/table.tscn" id="10_ad2i4"]
 [ext_resource type="PackedScene" uid="uid://bnljraa300dwb" path="res://Scenes/Magicbook1.tscn" id="11_3tqca"]
 [ext_resource type="PackedScene" uid="uid://i6vf82ejfddn" path="res://Assets/Models/gobot/model/stone_bridge_arch_broken.tscn" id="12_3tqca"]
@@ -76,6 +77,15 @@ font_size = 50
 font_color = Color(0.996094, 0.691406, 0.261719, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_ad2i4"]
+
+[sub_resource type="GDScript" id="GDScript_yidtr"]
+script/source = "extends Node3D
+	
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yidtr"]
+radius = 1.1616211
+height = 2.8544922
 
 [node name="DemoScene" type="Node3D"]
 
@@ -216,12 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
 shape = SubResource("BoxShape3D_asf4q")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
-
-[node name="GameMenu" type="Control" parent="UserInterface"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+script = ExtResource("9_yidtr")
 
 [node name="GameUI" type="Control" parent="UserInterface"]
 layout_mode = 3
@@ -257,6 +262,171 @@ theme_override_fonts/font = SubResource("SystemFont_ad2i4")
 theme_override_font_sizes/font_size = 48
 text = "Gem:"
 label_settings = SubResource("LabelSettings_igq7x")
+
+[node name="GameMenu" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="UserInterface/GameMenu"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(28.869133, 16.194784)
+color = Color(0, 0, 0, 0.8745098)
+
+[node name="Collect" type="Label" parent="UserInterface/GameMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -405.0
+offset_top = -184.0
+offset_right = 405.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Collect The Gem!"
+
+[node name="Name" type="Label" parent="UserInterface/GameMenu/Collect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -404.0
+offset_top = 297.5
+offset_right = 406.0
+offset_bottom = 434.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "นางสาวปภาวรินทร์ นาเมืองรักษ์ 673380275-5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="UserInterface/GameMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = 54.0
+offset_right = 23.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Start"
+
+[node name="advice" type="Label" parent="UserInterface/GameMenu"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 386.0
+offset_right = 490.0
+offset_bottom = 414.0
+theme_override_font_sizes/font_size = 20
+text = "Press F to"
+
+[node name="GameSum" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="UserInterface/GameSum"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(28.869133, 16.194784)
+color = Color(1, 1, 1, 0.6862745)
+
+[node name="MisionCom" type="Label" parent="UserInterface/GameSum"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -441.0
+offset_top = -228.0
+offset_right = 447.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Mission Complete!"
+
+[node name="gemAmount" type="Label" parent="UserInterface/GameSum"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -30.0
+offset_right = -42.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Gem:"
+
+[node name="Button" type="Button" parent="UserInterface/GameSum"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 162.0
+offset_right = 50.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Next"
+
+[node name="advice" type="Label" parent="UserInterface/GameSum"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 506.0
+offset_right = 514.0
+offset_bottom = 534.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Press N to"
 
 [node name="Platform1" type="Node3D" parent="."]
 
@@ -357,6 +527,7 @@ transform = Transform3D(-0.66336125, 0.23746558, 0.70962125, 0.73539734, 0.03154
 transform = Transform3D(-0.26567385, 0.64455867, 0.7169111, 0, 0.7436351, -0.66858566, -0.964063, -0.17762572, -0.19756441, -22.252802, 12.301861, -28.136078)
 
 [node name="Platform2" type="Node3D" parent="."]
+script = SubResource("GDScript_yidtr")
 
 [node name="PlatformBlue" parent="Platform2" instance=ExtResource("3_mj5wy")]
 transform = Transform3D(4, 0, 0, 0, 0.544, 0, 0, 0, 3.988, 7.136554, 9.413365, 36.858772)
@@ -364,7 +535,16 @@ transform = Transform3D(4, 0, 0, 0, 0.544, 0, 0, 0, 3.988, 7.136554, 9.413365, 3
 [node name="checkpoint1" parent="Platform2" instance=ExtResource("10_ad2i4")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.2967525, 9.656626, 37.310463)
 
+[node name="Area3D" type="Area3D" parent="Platform2/checkpoint1"]
+
+[node name="gotomenu" type="CollisionShape3D" parent="Platform2/checkpoint1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1791611, 0)
+shape = SubResource("CapsuleShape3D_yidtr")
+
 [node name="Sketchfab_Scene2" parent="Platform2" instance=ExtResource("11_3tqca")]
 transform = Transform3D(0.008020982, -0.009593868, 0.015608378, 0.016646456, 0.010933007, -0.0018343406, -0.0076524043, 0.01372687, 0.012369872, 5.9775186, 11.6083145, 37.81837)
 
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
+[connection signal="pressed" from="UserInterface/GameMenu/Start" to="UserInterface" method="_on_start_pressed"]
+[connection signal="pressed" from="UserInterface/GameSum/Button" to="UserInterface" method="_on_button_next_pressed"]
+[connection signal="body_entered" from="Platform2/checkpoint1/Area3D" to="UserInterface" method="_on_area_3d_body_entered"]

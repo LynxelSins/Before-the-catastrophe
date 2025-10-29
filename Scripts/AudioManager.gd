@@ -5,3 +5,4 @@ extends Node
 # References
 @onready var jump_sfx = $JumpSfx
 @onready var coin_sfx = $CoinSfx
+@onready var bgm_sfx = $AudioStreamPlayer

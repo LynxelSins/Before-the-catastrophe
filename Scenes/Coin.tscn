@@ -130,7 +130,7 @@ colors = PackedColorArray(0.5630827, 0.9818358, 0.99999994, 1, 1, 1, 1, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_an4m6"]
 radius = 3.47933
 
-[node name="Coin" type="Area3D"]
+[node name="Coin" type="Area3D" groups=["Coin"]]
 script = ExtResource("1_b8wip")
 
 [node name="Object_2" type="MeshInstance3D" parent="."]

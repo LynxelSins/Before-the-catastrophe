@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c067gqw7lgdg4"
+path="res://.godot/imported/Shuttling Through the Abyssal Rift • Training OST - Skirk Story Quest ｜ Genshin Imapct 5.7 OST.wav-237625b717d39292b78161cf00b44884.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Shuttling Through the Abyssal Rift • Training OST - Skirk Story Quest ｜ Genshin Imapct 5.7 OST.wav"
+dest_files=["res://.godot/imported/Shuttling Through the Abyssal Rift • Training OST - Skirk Story Quest ｜ Genshin Imapct 5.7 OST.wav-237625b717d39292b78161cf00b44884.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
