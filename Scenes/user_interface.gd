@@ -13,7 +13,7 @@ var coin_instance: Node = null
 func _ready():
 	sum.visible = false
 	menu.visible = true
-	AudioManager.bgm_sfx.play()
+	#AudioManager.bgm_sfx.play()
 	
 func _process(delta):
 	if Input.is_action_just_pressed("start"):
@@ -40,7 +40,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		GameManager.stop_game_timer()
 		if gemAmount:
-			gemAmount.text= "Gem: %d" % GameManager.score
+			gemAmount.text= "Magic Gem: %d" % GameManager.score
 		if timeUsed:
 			timeUsed.text = "Time: %s" % GameManager.get_formatted_time()
 		sum.visible = true

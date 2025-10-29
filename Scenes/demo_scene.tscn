@@ -240,9 +240,9 @@ script = ExtResource("7_x8whp")
 
 [node name="CoinsLabel" type="Label" parent="UserInterface/GameUI"]
 layout_mode = 0
-offset_left = 136.0
+offset_left = 297.0
 offset_top = 50.0
-offset_right = 193.0
+offset_right = 354.0
 offset_bottom = 120.0
 theme = SubResource("Theme_ad2i4")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -263,7 +263,7 @@ theme = SubResource("Theme_ad2i4")
 theme_override_constants/outline_size = 0
 theme_override_fonts/font = SubResource("SystemFont_ad2i4")
 theme_override_font_sizes/font_size = 48
-text = "Gem:"
+text = "Magic Gem:"
 label_settings = SubResource("LabelSettings_igq7x")
 
 [node name="Time" type="Label" parent="UserInterface/GameUI"]
@@ -313,7 +313,7 @@ offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
-text = "Collect The Gem!"
+text = "Collecting Magic Gem!"
 
 [node name="Name" type="Label" parent="UserInterface/GameMenu/Collect"]
 layout_mode = 1

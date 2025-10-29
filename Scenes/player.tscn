@@ -2275,3 +2275,4 @@ stream = ExtResource("7_asqdb")
 volume_db = -1.2
 pitch_scale = 0.75
 autoplay = true
+max_distance = 20.0
