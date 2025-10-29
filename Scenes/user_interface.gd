@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var spawn_position = %SpawnPosition
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var gemAmount = $GameSum/gemAmount
+@onready var timeUsed = $GameSum/TimeUsed
 
 var coin_scene := preload("res://Scenes/Coin.tscn")
 var coin_instance: Node = null
@@ -33,14 +34,17 @@ func start_game(): # **รวมตรรกะเริ่มต้นเกม
 	GameManager.reset_score() # **รีเซ็ตคะแนน**
 	reset_coin()
 	player.global_position = spawn_position.global_position # **ย้ายผู้เล่นไปจุดเกิด**
-
+	GameManager.start_game_timer()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		sum.visible = true
-		menu.visible = false
+		GameManager.stop_game_timer()
 		if gemAmount:
 			gemAmount.text= "Gem: %d" % GameManager.score
+		if timeUsed:
+			timeUsed.text = "Time: %s" % GameManager.get_formatted_time()
+		sum.visible = true
+		menu.visible = false
 		
 		
 func _on_button_next_pressed():
